@@ -4,7 +4,7 @@ export class Login extends Component {
   render() {
     return (
       <div>
-        <form onSubmit={this.onSubmit}>
+        <form>
           <label>Username: </label>
           <input type="text" />
           <label>Password: </label>

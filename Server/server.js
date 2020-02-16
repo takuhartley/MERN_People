@@ -1,8 +1,8 @@
-const app = express();
 const bodyParser = require("body-parser");
 const cors = require("cors");
-const express = require("express");
+const express = require('express');
 const mongoose = require("mongoose");
+const app = express();
 let User = require('./Models/User');
 const PORT = 4000;
 
@@ -22,10 +22,6 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 app.get('/', function (req, res) {
   res.send('Hello World!')
 })
-
-connection.once("open", function() {
-  console.log("MongoDB database connection is in fam");
-});
 
 app.listen(PORT, function() {
   console.log("We're connected broski on Port: " + PORT);
