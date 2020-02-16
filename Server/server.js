@@ -1,27 +1,37 @@
-const bodyParser = require("body-parser");
 const cors = require("cors");
-const express = require('express');
+const express = require("express");
 const mongoose = require("mongoose");
-const app = express();
-let User = require('./Models/User');
 const PORT = 4000;
-
+const app = express();
+require("dotenv/config");
 app.use(cors());
-app.use(bodyParser.json());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 //Set up default mongoose connection
-const mongoDB = 'mongodb://127.0.0.1/People';
-mongoose.connect(mongoDB, { useNewUrlParser: true });
+mongoose.connect(process.env.DB_CONNECTION, { useNewUrlParser: true }, () =>
+  console.log("Connected to DB fam!")
+);
 
-//Get the default connection
-const db = mongoose.connection;
+app.get("/home", function(req, res) {
+  res.send("Home");
+});
 
-//Bind connection to error event (to get notification of connection errors)
-db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+app.get("/about", function(req, res) {
+  res.send("About");
+});
 
-app.get('/', function (req, res) {
-  res.send('Hello World!')
-})
+app.get("/", function(req, res) {
+  res.send("Base Page");
+});
+
+app.post("/register", function(req, res) {
+  res.send("Register!");
+});
+
+app.post("/login", function(req, res) {
+  res.send("Login");
+});
 
 app.listen(PORT, function() {
   console.log("We're connected broski on Port: " + PORT);
