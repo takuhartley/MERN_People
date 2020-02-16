@@ -1,7 +1,7 @@
 import { Schema as _Schema, model } from "mongoose";
 const Schema = _Schema;
 
-const UserSchema = new Schema({
+const PoliticianSchema = new Schema({
   firstName: {
     type: String,
     required: [true, "First name is required"]
@@ -10,16 +10,11 @@ const UserSchema = new Schema({
     type: String,
     required: [true, "Last name is required"]
   },
-  userName: {
+  description: {
     type: String,
-    required: [true, "Username is required"],
-    min: [3, "Please enter a Username longer than 3 characters"]
-  },
-  email: {
-    type: String,
-    min: [3, "Please enter a valid email"]
+    required: [true, "Please enter description of them"]
   },
   date: { type: Date, default: Date.now }
 });
 
-export default model("User", UserSchema);
+export default model("Politician", PoliticianSchema);
