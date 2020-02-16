@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
 
 const UserSchema = new Schema({
   firstName: {
@@ -14,9 +15,9 @@ const UserSchema = new Schema({
     required: [true, "Username is required"],
     min: [3, "Please enter a Username longer than 3 characters"]
   },
-  description: {
+  email: {
     type: String,
-    min: [3, "Whatchu about son"]
+    min: [3, "Please enter a valid email"]
   },
   date: { type: Date, default: Date.now }
 });
