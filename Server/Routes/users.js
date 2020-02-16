@@ -4,7 +4,7 @@ let User = require("../Models/User");
 router.route("/").get((req, res) => {
   User.find()
     .then(users => res.json(users))
-    .catch(err => res.status(400).json("Error dawg: " + err));
+    .catch(err => res.status(400).json(`Error dawg: ${err}`));
 });
 
 router.route("/register").post((req, res) => {
@@ -15,8 +15,8 @@ router.route("/register").post((req, res) => {
   const newUser = new User({ firstName, lastName, userName, email });
   newUser
     .save()
-    .then(() => res.json("User added!"))
-    .catch(err => res.status(400).json("Error dawwg: " + err));
+    .then(() => res.json("Account created"))
+    .catch(err => res.status(400).json(`Error dawg: ${err}`));
 });
 
 module.exports = router;
