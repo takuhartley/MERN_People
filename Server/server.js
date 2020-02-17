@@ -18,11 +18,11 @@ mongoose.connect(
   
   // Routes
   // User Routes
-  const usersRouter = require("./Routes/users").default;
+  const usersRouter = require("./Routes/users")
   app.use("/users", usersRouter);
   
   // Politician Routes
-  const politicianRouter = require("./Routes/politicians").default;
+  const politicianRouter = require("./Routes/politicians")
   app.use("/politicians", politicianRouter);
 
   // Server connection
