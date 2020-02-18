@@ -1,4 +1,4 @@
-import { Schema as _Schema, model } from "mongoose";
+import Schema from "mongoose";
 const Schema = _Schema;
 
 const PoliticianSchema = new Schema({
